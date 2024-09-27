@@ -1,0 +1,209 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ProdManufacturer.Window1"
+        Title="Window1">
+	<Grid
+		Grid.ColumnDefinitions="250,*">
+		<StackPanel
+			Orientation="Vertical"
+			Grid.Column="0">
+			<Button
+					Content="Сброс и выход на главное окно"
+					Click="Button_Click_2">
+			</Button>
+			<StackPanel
+				HorizontalAlignment="Left"
+				Orientation="Horizontal">
+
+				<TextBlock
+					Text="id ">
+				</TextBlock>
+				<TextBlock
+					Name="idTov">
+				</TextBlock>
+			</StackPanel>
+			<StackPanel
+				HorizontalAlignment="Left"
+			   Orientation="Vertical">
+				<TextBlock
+				Text="Наименование товара">
+				</TextBlock>
+				<TextBox
+					Width="200"
+					Name="name">
+				</TextBox>
+			</StackPanel>
+			<StackPanel
+			   HorizontalAlignment="Left"
+			   Orientation="Vertical">
+				<TextBlock
+				Text="Описание товара">
+				</TextBlock>
+				<TextBox
+					Height="70"
+					Width="200"
+					Name="descr">
+				</TextBox>
+			</StackPanel>
+			<StackPanel
+			   Orientation="Vertical">
+				<TextBlock
+				Text="Цена товара">
+				</TextBlock>
+				<TextBox
+					HorizontalAlignment="Left"
+					Width="130"
+					Name="cost">
+				</TextBox>
+			</StackPanel>
+			<StackPanel
+			  Orientation="Vertical">
+				<TextBlock
+				Text="Производитель товара">
+				</TextBlock>
+				<TextBox
+					HorizontalAlignment="Left"
+					Width="130"
+					Name="manuf">
+				</TextBox>
+				<Button
+					Click="Button_Click_1"
+					Content="Готово">
+				</Button>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel
+				HorizontalAlignment="Left"
+			Grid.Column="1">
+			<CheckBox
+				Name="activity"
+				IsChecked="False">
+				Товар активен
+			</CheckBox>
+
+			<StackPanel
+				Orientation="Horizontal">
+				<StackPanel
+					Orientation="Vertical">
+					<TextBlock
+						TextWrapping="WrapWithOverflow"
+					Text="Добавленные связанные товары">
+					</TextBlock>
+					<ListBox Width="250"
+						 Height="200"
+						 x:CompileBindings="False"
+						 ScrollViewer.VerticalScrollBarVisibility="Visible"
+						 Name="addedDopTovars">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<StackPanel
+										  Orientation="Horizontal">
+										<TextBlock
+												  Text="id ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding IdTovar}">
+										</TextBlock>
+									</StackPanel>
+									<TextBlock
+										Text="{Binding NameTovar}">
+									</TextBlock>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+					<Button
+						Content="Подтвердить удаление"
+						Click="DeleteDop_Click">
+					</Button>
+				</StackPanel>
+				<StackPanel
+					Orientation="Vertical">
+
+
+					<TextBlock
+				   Text="Добавить  товары">
+					</TextBlock>
+					<ListBox
+						Width="250"
+						Height="200"
+						x:CompileBindings="False"
+						ScrollViewer.VerticalScrollBarVisibility="Visible"
+						Name="dopTovars">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<StackPanel
+										  Orientation="Horizontal">
+										<TextBlock
+												  Text="id ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding IdTovar}">
+										</TextBlock>
+									</StackPanel>
+									<StackPanel
+									Orientation="Horizontal">
+										<TextBlock
+											Text="Наименование ">
+										</TextBlock>
+										<TextBlock
+										Text="{Binding NameTovar}">
+										</TextBlock>
+									</StackPanel>
+									<StackPanel
+											  Orientation="Horizontal">
+										<TextBlock
+											Text="Описание ">
+										</TextBlock>
+										<TextBlock
+											Text="{Binding Description}">
+										</TextBlock>
+									</StackPanel>
+									<StackPanel
+								  Orientation="Horizontal">
+										<TextBlock
+											Text="Цена ">
+										</TextBlock>
+										<TextBlock
+										Text="{Binding Cost}">
+										</TextBlock>
+									</StackPanel>
+									<StackPanel
+										Orientation="Horizontal">
+										<TextBlock
+											Text="Производитель ">
+										</TextBlock>
+										<TextBlock
+											Width="300"
+											TextWrapping="WrapWithOverflow"
+											Text="{Binding NameManufacturer}">
+										</TextBlock>
+									</StackPanel>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+					<Button
+						Content="Подтвердить добавление"
+						Click="addTovarOk_Click">
+					</Button>
+				</StackPanel>
+			</StackPanel>
+			<Button
+				HorizontalAlignment="Left"
+				Content="Добавить главное изображение"
+				Click="Button_Click">
+			</Button>
+			<Image
+				Height="100"
+				Width="100"
+				Name="img">
+			</Image>
+		</StackPanel>
+	</Grid>
+</Window>
